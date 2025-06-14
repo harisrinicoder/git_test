@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Variables and :root Explained</title>
+  <style>
+    /* CSS Variables (Custom Properties) Defined in Global Scope */
+    :root {
+      --primary-color: #1c8413;
+      --secondary-color: #a3e4a9;
+      --bg-light: #e0f2f1;
+      --text-color: #333;
+      --padding: 20px;
+      --font-size: 1.1em;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: var(--bg-light);
+      color: var(--text-color);
+    }
+
+    .header, .footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: var(--padding);
+      font-size: 1.3em;
+    }
+
+    h1, h2 {
+      color: var(--primary-color);
+      margin-top: 40px;
+    }
+
+    .example {
+      margin: 20px 0;
+      padding: var(--padding);
+      border-left: 5px solid var(--secondary-color);
+      background-color: #ffffff;
+    }
+
+    .example p {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: var(--font-size);
+      background-color: #ffffff;
+      border-left: 4px solid var(--secondary-color);
+    }
+
+    .custom-box {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: var(--padding);
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .note {
+      font-style: italic;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    Future Bright Infotech
+  </header>
+
+  <h1>CSS Variables (<code>--custom-properties</code>)</h1>
+
+  <div class="example">
+    <h2>💡 What is <code>:root</code>?</h2>
+    <p>
+      The <code>:root</code> selector in CSS targets the topmost element in the DOM — the <code>&lt;html&gt;</code> element.
+      It is similar to using <code>html</code>, but has **higher specificity**.
+    </p>
+    <p>
+      When you define CSS variables inside <code>:root</code>, they become globally available to your entire stylesheet — this is best practice for theme values like colors, spacing, etc.
+    </p>
+  </div>
+
+  <div class="example">
+    <h2>✅ Why Define Variables in <code>:root</code>?</h2>
+    <p>
+      Declaring variables in <code>:root</code> ensures they can be reused anywhere in your CSS, including inside components, elements, or media queries.
+      It helps create a central source of truth for your design system.
+    </p>
+    <ul>
+      <li>📌 Reusable across all selectors</li>
+      <li>🎯 Easy to maintain and update</li>
+      <li>🎨 Enables theme management</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <h2>🎨 Example: Variable-Based Styled Box</h2>
+    <p>This box uses variables for background, padding, and font color:</p>
+    <div class="custom-box">This is using CSS variables!</div>
+    <div class="note">Try changing <code>--secondary-color</code> in <code>:root</code> to update all references at once.</div>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 Future Bright Infotech. All rights reserved.
+  </footer>
+
+</body>
+</html>
